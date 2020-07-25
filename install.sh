@@ -9,15 +9,17 @@ echo "Starting Token Thinker's Lab Build..."
 
 git clone https://github.com/Token-Thinker/tklab.git
 
+xcode-select --install
+##xcode-select --reset
+
 # 1 - Install Homebrew, install if we don't have it
 if test ! $(which brew); 
     then
     echo "1. Installing Homebrew..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-    # Run the Homebrew Script
-    ./brew.sh
     else
-    echo "Homebrew already installed..."
+    echo "1. Hombrew Installed....Getting Packages"
+    ./brew.sh
 fi
 
 #2 - Install Oh-My-Zsh

@@ -28,7 +28,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 # 3 - Create Symlinks 
 echo "3. Creating Symlinks "
-homedir=/Users/$USER
+homedir=/Users/tokenthinker
 
 # dotfiles directory
 tklabdir=${homedir}/tklab

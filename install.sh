@@ -44,7 +44,7 @@ echo "...done"
 # create symlinks (will overwrite old dotfiles)
 for file in ${files}; do
     echo "Creating symlink to $file in home directory."
-    ln -sf ${tkdir}/.${file} ${homedir}/.${file}
+    ln -sf ${tklabdir}/.${file} ${homedir}/.${file}
 done
 
 echo "Lab SetUp Complete!"

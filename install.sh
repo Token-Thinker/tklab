@@ -5,35 +5,46 @@
 # And sets Sublime preferences
 ############################
 
-if [ "$#" -ne 1 ]; then
-    echo "Usage: install.sh <home_directory>"
-    exit 1
+echo "Starting Token Thinker's Lab Build..."
+
+# 1 - Install Homebrew, install if we don't have it
+if test ! $(which brew); 
+    then
+    echo "1. Installing Homebrew..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    # Run the Homebrew Script
+    ./brew.sh
+    else
+    echo "Homebrew already installed..."
 fi
 
-homedir=$1
+#2 - Install Oh-My-Zsh
+echo "2. Installing Oh-My-Zsh..."
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"--unattended
+
+# 3 - Create Symlinks 
+echo "3. Creating Symlinks "
+homedir=/Users/$USER
 
 # dotfiles directory
 tklabdir=${homedir}/tklab
 
 # list of files/folders to symlink in ${homedir}
-files="bash_profile bashrc bash_prompt aliases private"
+files="zshrc private"
 
 # change to the dotfiles directory
-echo "Changing to the ${dotfiledir} directory"
-cd ${dotfiledir}
+echo "Changing to the ${tklabdir} directory"
+cd ${tklabdir}
 echo "...done"
 
 # create symlinks (will overwrite old dotfiles)
 for file in ${files}; do
     echo "Creating symlink to $file in home directory."
-    ln -sf ${dotfiledir}/.${file} ${homedir}/.${file}
+    ln -sf ${tkdir}/.${file} ${homedir}/.${file}
 done
 
-# Download Git Auto-Completion
-curl "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh" > ${homedir}/.git-completion.zsh
-
-# Run the Homebrew Script
-./brew.sh
-
 # Run the Sublime Script
+echo "4. Run Sublime Script..."
 ./sublime.sh
+
+echo "Lab SetUp Complete!"

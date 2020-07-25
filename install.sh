@@ -43,8 +43,4 @@ for file in ${files}; do
     ln -sf ${tkdir}/.${file} ${homedir}/.${file}
 done
 
-# Run the Sublime Script
-echo "4. Run Sublime Script..."
-./sublime.sh
-
 echo "Lab SetUp Complete!"

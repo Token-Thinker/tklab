@@ -7,6 +7,8 @@
 
 echo "Starting Token Thinker's Lab Build..."
 
+git clone https://github.com/Token-Thinker/tklab.git
+
 # 1 - Install Homebrew, install if we don't have it
 if test ! $(which brew); 
     then

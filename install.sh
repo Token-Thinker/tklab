@@ -30,7 +30,7 @@ homedir=/Users/$USER
 tklabdir=${homedir}/tklab
 
 # list of files/folders to symlink in ${homedir}
-files="zshrc private"
+files="zshrc"
 
 # change to the dotfiles directory
 echo "Changing to the ${tklabdir} directory"
